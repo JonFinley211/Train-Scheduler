@@ -121,7 +121,7 @@ console.log("trainstartpretty"+trainStartPretty);
   var newRow = $("<tr>").append(
     $("<td>").text(trainName),
     $("<td>").text(trainDest),
-    // $("<td>").text(trainStartPretty),
+    $("<td>").text(trainStartPretty),
     // $("<td>").text(trainMonths),
     $("<td>").text(trainFreq),
     $("<td>").text(moment(nextTrain).format("hh:mm")),
