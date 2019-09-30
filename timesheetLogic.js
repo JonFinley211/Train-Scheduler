@@ -85,7 +85,7 @@ database.ref().on("child_added", function(childSnapshot) {
 
   // Prettify the employee start
   var trainStartPretty = moment.unix(trainStart).format("hh:mm");
-console.log(trainStartPretty);
+console.log("trainstartpretty"+trainStartPretty);
   // Calculate the months worked using hardcore math
   // To calculate the months worked
   var trainMonths = moment().diff(moment(trainStart, "X"), "months");
@@ -94,6 +94,28 @@ console.log(trainStartPretty);
   // Calculate the total billed rate
   var trainBilled = trainMonths * trainFreq;
   console.log("train billed " +trainBilled);
+  var firstTimeConverted = moment(trainStartPretty, "HH:mm").subtract(1, "years");
+  console.log("firsttimeconverted " + firstTimeConverted);
+
+  // Current Time
+  var currentTime = moment();
+  console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+  // Difference between the times
+  var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+  console.log("DIFFERENCE IN TIME: " + diffTime);
+
+  // Time apart (remainder)
+  var tRemainder = diffTime % trainFreq;
+  console.log("tremainder="+tRemainder);
+
+  // Minute Until Train
+  var tMinutesTillTrain = trainFreq - tRemainder;
+  console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+  // Next Train
+  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+  console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
   // Create the new row
   var newRow = $("<tr>").append(
@@ -102,7 +124,8 @@ console.log(trainStartPretty);
     // $("<td>").text(trainStartPretty),
     // $("<td>").text(trainMonths),
     $("<td>").text(trainFreq),
-    $("<td>").text(trainBilled)
+    $("<td>").text(moment(nextTrain).format("hh:mm")),
+    $("<td>").text(tMinutesTillTrain)
   );
 
   // Append the new row to the table
@@ -146,8 +169,8 @@ console.log(trainStartPretty);
 
     // Time is 3:30 AM
     var firstTime = "03:30";
-    console.log ("first time " + firstTime);
-    console.log("first time trainstart  " + trainStart);
+    // console.log ("first time " + );
+    // console.log("first time trainstart  " + trainStart);
 
     // First Time (pushed back 1 year to make sure it comes before current time)
     var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
@@ -163,7 +186,7 @@ console.log(trainStartPretty);
 
     // Time apart (remainder)
     var tRemainder = diffTime % tFrequency;
-    console.log(tRemainder);
+    console.log("tremainder="+tRemainder);
 
     // Minute Until Train
     var tMinutesTillTrain = tFrequency - tRemainder;
