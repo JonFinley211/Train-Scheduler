@@ -7,7 +7,7 @@ Api calls to moments to display train times to show correct up to date train sch
 https://jonfinley211.github.io/Train-Scheduler/
 
 ## Original Inspiration
-This site provides initial information for users who are planning to travel somewhere new. A to-do list is provided with local storage in order to store ideas and inspiration.
+This site provides initial information for users who are planning to travel by train giving times for future trains. 
 
 ## Technology Used
 - jQuery 
