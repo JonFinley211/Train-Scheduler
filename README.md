@@ -15,11 +15,17 @@ This site provides initial information for users who are planning to travel by t
 - Bootstrap
 - Moments.js
 
+## How to Install 
+- Clone Repository
+- NPM Install
+- Open In Browser
+
+
 
 
 ## Future Goals
-- animate header 
-- show a map of trains hour by hour using heremaps. 
+- Animate header 
+- Show a map of trains hour by hour using heremaps. 
 - Additional travel APIs (SkyScanner, Booking, etc.)
 
 ## Checkout my Projects https://jonfinley211.github.io/portfolio/
